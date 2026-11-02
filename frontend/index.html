@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Placement Predictor</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>Student Placement Predictor</h1>
+        <p>Enter your details to predict placement probability.</p>
+      </header>
+
+      <form id="prediction-form">
+        <h2>Personal Information</h2>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+              <option value="">Select gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="branch">Branch</label>
+            <select id="branch" name="branch" required>
+              <option value="">Select branch</option>
+              <option value="CSE">CSE</option>
+              <option value="IT">IT</option>
+              <option value="ECE">ECE</option>
+              <option value="EEE">EEE</option>
+              <option value="MECH">MECH</option>
+              <option value="CIVIL">CIVIL</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              placeholder="e.g. Surat"
+              required
+            />
+          </div>
+        </div>
+
+        <h2>Academic Performance</h2>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="cgpa">CGPA (0–10)</label>
+            <input
+              type="number"
+              id="cgpa"
+              name="cgpa"
+              min="0"
+              max="10"
+              step="0.01"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="attendance_percent">Attendance (%)</label>
+            <input
+              type="number"
+              id="attendance_percent"
+              name="attendance_percent"
+              min="0"
+              max="100"
+              step="0.1"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="has_backlog">Has Backlog?</label>
+            <select id="has_backlog" name="has_backlog" required>
+              <option value="">Select option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+
+        <h2>Skills & Experience</h2>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="communication_skill">
+              Communication Skill (0–10)
+            </label>
+            <input
+              type="number"
+              id="communication_skill"
+              name="communication_skill"
+              min="0"
+              max="10"
+              step="0.1"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="coding_problems_solved"> Coding Problems Solved </label>
+            <input
+              type="number"
+              id="coding_problems_solved"
+              name="coding_problems_solved"
+              min="0"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="tech_events_attended"> Tech Events Attended </label>
+            <input
+              type="number"
+              id="tech_events_attended"
+              name="tech_events_attended"
+              min="0"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="internship">Completed Internship?</label>
+            <select id="internship" name="internship" required>
+              <option value="">Select option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="salary_expectation">
+              Expected Salary (₹ per year)
+            </label>
+            <input
+              type="number"
+              id="salary_expectation"
+              name="salary_expectation"
+              min="0"
+              required
+            />
+          </div>
+        </div>
+
+        <button type="submit" id="predict-btn">Predict Placement</button>
+
+        <p id="status" role="status" aria-live="polite"></p>
+
+        <section id="result" hidden aria-live="polite">
+          <h2 id="result-title">Prediction Result</h2>
+          <p id="result-probability"></p>
+          <p class="disclaimer">
+            This is a model estimate, not a guarantee of actual placement.
+          </p>
+        </section>
+      </form>
+    </div>
+  </body>
+</html>
